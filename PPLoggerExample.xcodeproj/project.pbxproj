@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11029C56189CD25800E5AF5E /* PPLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 11029C55189CD25800E5AF5E /* PPLoggerConfiguration.m */; };
 		D6B5DCB31898AE4A00A0CF3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B5DCB21898AE4A00A0CF3D /* Foundation.framework */; };
 		D6B5DCB51898AE4B00A0CF3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B5DCB41898AE4B00A0CF3D /* CoreGraphics.framework */; };
 		D6B5DCB71898AE4B00A0CF3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B5DCB61898AE4B00A0CF3D /* UIKit.framework */; };
@@ -19,6 +20,7 @@
 		D6B5DCCE1898AE4B00A0CF3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B5DCB61898AE4B00A0CF3D /* UIKit.framework */; };
 		D6B5DCD61898AE4B00A0CF3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D6B5DCD41898AE4B00A0CF3D /* InfoPlist.strings */; };
 		D6B5DCD81898AE4B00A0CF3D /* PPLoggerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5DCD71898AE4B00A0CF3D /* PPLoggerExampleTests.m */; };
+		D6B5DCE41898AF6D00A0CF3D /* PPLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B5DCE31898AF6D00A0CF3D /* PPLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11029C54189CD25800E5AF5E /* PPLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLoggerConfiguration.h; sourceTree = "<group>"; };
+		11029C55189CD25800E5AF5E /* PPLoggerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLoggerConfiguration.m; sourceTree = "<group>"; };
 		D6B5DCAF1898AE4A00A0CF3D /* PPLoggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPLoggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B5DCB21898AE4A00A0CF3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D6B5DCB41898AE4B00A0CF3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +52,8 @@
 		D6B5DCD31898AE4B00A0CF3D /* PPLoggerExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PPLoggerExampleTests-Info.plist"; sourceTree = "<group>"; };
 		D6B5DCD51898AE4B00A0CF3D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D6B5DCD71898AE4B00A0CF3D /* PPLoggerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPLoggerExampleTests.m; sourceTree = "<group>"; };
+		D6B5DCE21898AF6D00A0CF3D /* PPLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLogger.h; sourceTree = "<group>"; };
+		D6B5DCE31898AF6D00A0CF3D /* PPLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +83,7 @@
 		D6B5DCA61898AE4A00A0CF3D = {
 			isa = PBXGroup;
 			children = (
+				D6B5DCE11898AF4B00A0CF3D /* PPLogger */,
 				D6B5DCB81898AE4B00A0CF3D /* PPLoggerExample */,
 				D6B5DCD11898AE4B00A0CF3D /* PPLoggerExampleTests */,
 				D6B5DCB11898AE4A00A0CF3D /* Frameworks */,
@@ -142,6 +149,17 @@
 				D6B5DCD41898AE4B00A0CF3D /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D6B5DCE11898AF4B00A0CF3D /* PPLogger */ = {
+			isa = PBXGroup;
+			children = (
+				D6B5DCE21898AF6D00A0CF3D /* PPLogger.h */,
+				D6B5DCE31898AF6D00A0CF3D /* PPLogger.m */,
+				11029C54189CD25800E5AF5E /* PPLoggerConfiguration.h */,
+				11029C55189CD25800E5AF5E /* PPLoggerConfiguration.m */,
+			);
+			path = PPLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +260,8 @@
 			files = (
 				D6B5DCC31898AE4B00A0CF3D /* PPAppDelegate.m in Sources */,
 				D6B5DCBF1898AE4B00A0CF3D /* main.m in Sources */,
+				11029C56189CD25800E5AF5E /* PPLoggerConfiguration.m in Sources */,
+				D6B5DCE41898AF6D00A0CF3D /* PPLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +466,7 @@
 				D6B5DCDD1898AE4B00A0CF3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D6B5DCDE1898AE4B00A0CF3D /* Build configuration list for PBXNativeTarget "PPLoggerExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +475,7 @@
 				D6B5DCE01898AE4B00A0CF3D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
