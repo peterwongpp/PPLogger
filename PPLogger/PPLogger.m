@@ -10,7 +10,7 @@
 
 @interface PPLogger ()
 
-- (NSString *) formatMessage:(NSString *)message severity:(PPLoggerSeverity)severity className:(NSString *)className methodName:(NSString *)methodName lineNumber:(NSInteger)lineNumber underVerbosity:(PPLoggerVerbosity)verbosity;
+- (NSString *) formatMessage:(NSString *)message severity:(PPLoggerSeverity)severity functionName:(NSString *)functionName lineNumber:(NSInteger)lineNumber underVerbosity:(PPLoggerVerbosity)verbosity;
 
 @end
 
@@ -34,7 +34,7 @@
     return self;
 }
 
-- (NSString *)formatMessage:(NSString *)message severity:(PPLoggerSeverity)severity className:(NSString *)className methodName:(NSString *)methodName lineNumber:(NSInteger)lineNumber underVerbosity:(PPLoggerVerbosity)verbosity
+- (NSString *)formatMessage:(NSString *)message severity:(PPLoggerSeverity)severity functionName:(NSString *)functionName lineNumber:(NSInteger)lineNumber underVerbosity:(PPLoggerVerbosity)verbosity
 {
     if (verbosity == PPLoggerVerbosityUNSET) {
         return @"";
@@ -46,8 +46,11 @@
     [parts addObject:severityTag];
 
     if (verbosity == PPLoggerVerbosityDetailed) {
-        NSString *verboseDetails = [NSString stringWithFormat:@"[%@][%@][%d]", className, methodName, lineNumber];
-        [parts addObject:verboseDetails];
+        [parts addObject:[NSString stringWithFormat:@"%@", functionName]];
+    }
+
+    if (verbosity == PPLoggerVerbosityDetailed) {
+        [parts addObject:[NSString stringWithFormat:@"[%d]", lineNumber]];
     }
 
     [parts addObject:message];
@@ -55,7 +58,7 @@
     return [parts componentsJoinedByString:@"\t"];
 }
 
-- (void)log:(NSString *)message severity:(PPLoggerSeverity)severity verbosity:(PPLoggerVerbosity)verbosity className:(NSString *)className methodName:(NSString *)methodName lineNumber:(NSInteger)lineNumber
+- (void)log:(NSString *)message severity:(PPLoggerSeverity)severity verbosity:(PPLoggerVerbosity)verbosity functionName:(NSString *)functionName lineNumber:(NSInteger)lineNumber
 {
     PPLoggerSeverity minimumSeverity = self.configuration.minimumSeverity;
     PPLoggerSeverity defaultSeverity = self.configuration.defaultSeverity;
@@ -73,7 +76,7 @@
         return;
     }
 
-    NSString *formattedMessage = [self formatMessage:message severity:(PPLoggerSeverity)severity className:className methodName:methodName lineNumber:lineNumber underVerbosity:verbosity];
+    NSString *formattedMessage = [self formatMessage:message severity:(PPLoggerSeverity)severity functionName:(NSString *)functionName lineNumber:lineNumber underVerbosity:verbosity];
 
     NSLogv(formattedMessage, nil);
 }

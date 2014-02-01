@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "PPLoggerConfiguration.h"
 
-#define PPLogBase(_severity, _verbosity, _format, ...) [[PPLogger sharedInstance] log:[NSString stringWithFormat:_format, ##__VA_ARGS__] severity:_severity verbosity:_verbosity className:NSStringFromClass([self class]) methodName:NSStringFromSelector(_cmd) lineNumber:__LINE__]
+#define PPLogBase(_severity, _verbosity, _format, ...) [[PPLogger sharedInstance] log:[NSString stringWithFormat:_format, ##__VA_ARGS__] severity:_severity verbosity:_verbosity functionName:[NSString stringWithFormat:@"%s", __PRETTY_FUNCTION__] lineNumber:__LINE__]
 
 #define PPLog(_format, ...) PPLogBase(PPLoggerSeverityUNSET, PPLoggerVerbosityUNSET, _format, ##__VA_ARGS__)
 
@@ -33,6 +33,6 @@
 /**
     Logs message. You should use the @c PPLog and @c PPLogBase macros.
  */
-- (void) log:(NSString *)message severity:(PPLoggerSeverity)severity verbosity:(PPLoggerVerbosity)verbosity className:(NSString *)className methodName:(NSString *)methodName lineNumber:(NSInteger)lineNumber;
+- (void) log:(NSString *)message severity:(PPLoggerSeverity)severity verbosity:(PPLoggerVerbosity)verbosity functionName:(NSString *)functionName lineNumber:(NSInteger)lineNumber;
 
 @end
