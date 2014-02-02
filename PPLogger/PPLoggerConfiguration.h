@@ -60,9 +60,9 @@ typedef NS_ENUM(NSUInteger, PPLoggerVerbosity) {
 @property (nonatomic, assign) PPLoggerSeverity minimumSeverity;
 
 /**
- The default severity used if you did not provide the severity explicitly.
+    The default severity used if you did not provide the severity explicitly.
 
- @note Only the lowest bit will be treated as the default value. For example if you set it to @c PPLoggerSeverityInfo|PPLoggerSeverityError, the default would be @c PPLoggerSeverityInfo.
+    @note Only the lowest bit will be treated as the default value. For example if you set it to @c PPLoggerSeverityInfo|PPLoggerSeverityError, the default would be @c PPLoggerSeverityInfo.
  */
 @property (nonatomic, assign) PPLoggerSeverity defaultSeverity;
 
@@ -72,5 +72,29 @@ typedef NS_ENUM(NSUInteger, PPLoggerVerbosity) {
     @note Only the lowest bit will be treated as the default value. For example if you set it to @c PPLoggerVerbosityPlain|PPLoggerVerbosityDetailed, the default would be @c PPLoggerVerbosityPlain.
  */
 @property (nonatomic, assign) PPLoggerVerbosity defaultVerbosity;
+
+/**
+    Normalize the severity.
+
+    @param severity The severity to be normalized.
+    @return If the severity is UNSET, return the default severity. Otherwise return the untouched severity.
+ */
+- (PPLoggerSeverity) normalizedSeverity:(PPLoggerSeverity)severity;
+/**
+    Normalize the verbosity.
+
+    @param verbosity The verbosity to be normalized.
+    @return If the verbosity is UNSET, return the default verbosity. Otherwise return the untouched verbosity.
+ */
+- (PPLoggerVerbosity) normalizedVerbosity:(PPLoggerVerbosity)verbosity;
+
+/**
+    Determine should the message be logged under the given severity and verbosity.
+
+    @param severity The severity to check against.
+    @param verbosity The verbosity to check against.
+    @return YES if should be logged, NO otherwise.
+ */
+- (BOOL) shouldLogUnderSeverity:(PPLoggerSeverity)severity verbosity:(PPLoggerVerbosity)verbosity;
 
 @end

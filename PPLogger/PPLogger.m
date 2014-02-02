@@ -60,19 +60,10 @@
 
 - (void)log:(NSString *)message severity:(PPLoggerSeverity)severity verbosity:(PPLoggerVerbosity)verbosity functionName:(NSString *)functionName lineNumber:(NSInteger)lineNumber
 {
-    PPLoggerSeverity minimumSeverity = self.configuration.minimumSeverity;
-    PPLoggerSeverity defaultSeverity = self.configuration.defaultSeverity;
-    PPLoggerVerbosity defaultVerbosity = self.configuration.defaultVerbosity;
+    severity = [self.configuration normalizedSeverity:severity];
+    verbosity = [self.configuration normalizedVerbosity:verbosity];
 
-    if (severity == PPLoggerSeverityUNSET) {
-        severity = defaultSeverity;
-    }
-    if (verbosity == PPLoggerVerbosityUNSET) {
-        verbosity = defaultVerbosity;
-    }
-
-    if (severity < minimumSeverity ||
-        verbosity == PPLoggerVerbosityNone) {
+    if (![self.configuration shouldLogUnderSeverity:severity verbosity:verbosity]) {
         return;
     }
 

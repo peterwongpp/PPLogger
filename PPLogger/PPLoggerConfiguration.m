@@ -55,4 +55,27 @@
     return mapping[@(severity)];
 }
 
+- (PPLoggerSeverity)normalizedSeverity:(PPLoggerSeverity)severity
+{
+    if (severity == PPLoggerSeverityUNSET) {
+        return self.defaultSeverity;
+    }
+    return severity;
+}
+
+- (PPLoggerVerbosity)normalizedVerbosity:(PPLoggerVerbosity)verbosity
+{
+    if (verbosity == PPLoggerVerbosityUNSET) {
+        return self.defaultVerbosity;
+    }
+    return verbosity;
+}
+
+- (BOOL)shouldLogUnderSeverity:(PPLoggerSeverity)severity verbosity:(PPLoggerVerbosity)verbosity
+{
+    BOOL severityOK = severity >= self.minimumSeverity;
+    BOOL verbosityOK = verbosity != PPLoggerVerbosityNone;
+    return severityOK && verbosityOK;
+}
+
 @end
