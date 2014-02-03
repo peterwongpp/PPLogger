@@ -14,7 +14,7 @@ If you have already installed, you should have a `Podfile` file at your project'
 
 Edit it with your favourite text editor to add the following line to the bottom of the Podfile:
 
-    pod 'PPLogger', '~> 0.0'
+    pod 'PPLogger', '~> 0.1'
 
 Since the versioning is using [Semantic Versioning](http://semver.org), you are safe to use `~>` for backward-compatible changes.
 

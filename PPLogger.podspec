@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "PPLogger"
-  s.version      = "0.0.0"
+  s.version      = "0.1.0"
 
   s.summary      = "Extending NSLog for more control over the visibility of the log messages across different environments."
   s.description  = <<-DESC
