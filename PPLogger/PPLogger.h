@@ -13,6 +13,12 @@
 
 #define PPLog(_format, ...) PPLogBase(PPLoggerSeverityUNSET, PPLoggerVerbosityUNSET, _format, ##__VA_ARGS__)
 
+#define PPLogDebug(_format, ...) PPLogBase(PPLoggerSeverityDebug, PPLoggerVerbosityUNSET, _format, ##__VA_ARGS__)
+#define PPLogInfo(_format, ...) PPLogBase(PPLoggerSeverityInfo, PPLoggerVerbosityUNSET, _format, ##__VA_ARGS__)
+#define PPLogWarn(_format, ...) PPLogBase(PPLoggerSeverityWarn, PPLoggerVerbosityUNSET, _format, ##__VA_ARGS__)
+#define PPLogError(_format, ...) PPLogBase(PPLoggerSeverityError, PPLoggerVerbosityUNSET, _format, ##__VA_ARGS__)
+#define PPLogFatal(_format, ...) PPLogBase(PPLoggerSeverityFatal, PPLoggerVerbosityUNSET, _format, ##__VA_ARGS__)
+
 #ifdef PPLOGGER_SWIZZLE_NSLOG
 #undef NSLog
 #define NSLog(_format, ...)		PPLog(_format, ##__VA_ARGS__)

@@ -7,7 +7,6 @@
 //
 
 #import "PPAppDelegate.h"
-#import "PPLogger.h"
 
 @implementation PPAppDelegate
 
@@ -17,20 +16,17 @@
     // Override point for customization after application launch.
 
     // Provide suitable log configuration depending on the environment.
-    PPLoggerConfiguration *logConfiguration = [[PPLoggerConfiguration alloc] init];
-    [logConfiguration setDefaultSeverity:PPLoggerSeverityDebug];
+    PPLoggerConfiguration *configuration = [[PPLogger sharedInstance] configuration];
+    [configuration setDefaultSeverity:PPLoggerSeverityDebug];
 #ifdef DEBUG
-    [logConfiguration setMinimumSeverity:PPLoggerSeverityDebug];
-    [logConfiguration setDefaultVerbosity:PPLoggerVerbosityDetailed];
-#else
-    [logConfiguration setMinimumSeverity:PPLoggerSeverityInfo];
-    [logConfiguration setDefaultVerbosity:PPLoggerVerbosityPlain];
+    [configuration setMinimumSeverity:PPLoggerSeverityDebug];
+    [configuration setDefaultVerbosity:PPLoggerVerbosityDetailed];
+#else // Release (or production)
+    [configuration setMinimumSeverity:PPLoggerSeverityInfo];
+    [configuration setDefaultVerbosity:PPLoggerVerbosityDetailed];
 #endif
-    [[PPLogger sharedInstance] setConfiguration:logConfiguration];
 
-#define PPLOGGER_SWIZZLE_NSLOG
-
-#ifdef PPLOGGER_SWIZZLE_NSLOG
+#ifdef PPLOGGER_SWIZZLE_NSLOG // you need not to check against the PPLOGGER_SWIZZLE_NSLOG constant. used here to let you know how the constant affect the NSLog.
     NSLog(@"NSLog is swizzled and is the same as PPLog");
 #else
     NSLog(@"NSLog is not swizzled and is untouched.");
@@ -38,6 +34,12 @@
 
     PPLog(@"default log message.");
     PPLog(@"usage should be similar to %@", @"NSLog");
+
+    PPLogDebug(@"log to debug level explicitly.");
+    PPLogInfo(@"log to info level explicitly.");
+    PPLogWarn(@"log to warn level explicitly.");
+    PPLogError(@"log to error level explicitly.");
+    PPLogFatal(@"log to fatal level explicitly.");
 
     PPLogBase(PPLoggerSeverityUNSET, PPLoggerVerbosityUNSET, @"set to unset is same as using default value. So this is same as using PPLog.");
 
