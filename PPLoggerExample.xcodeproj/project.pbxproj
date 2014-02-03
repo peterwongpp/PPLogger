@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		11029C56189CD25800E5AF5E /* PPLoggerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 11029C55189CD25800E5AF5E /* PPLoggerConfiguration.m */; };
+		11029C58189E993E00E5AF5E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 11029C57189E993E00E5AF5E /* README.md */; };
+		11029C5A189E994800E5AF5E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 11029C59189E994800E5AF5E /* LICENSE */; };
 		D6B5DCB31898AE4A00A0CF3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B5DCB21898AE4A00A0CF3D /* Foundation.framework */; };
 		D6B5DCB51898AE4B00A0CF3D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B5DCB41898AE4B00A0CF3D /* CoreGraphics.framework */; };
 		D6B5DCB71898AE4B00A0CF3D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B5DCB61898AE4B00A0CF3D /* UIKit.framework */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		11029C54189CD25800E5AF5E /* PPLoggerConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPLoggerConfiguration.h; sourceTree = "<group>"; };
 		11029C55189CD25800E5AF5E /* PPLoggerConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPLoggerConfiguration.m; sourceTree = "<group>"; };
+		11029C57189E993E00E5AF5E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		11029C59189E994800E5AF5E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		D6B5DCAF1898AE4A00A0CF3D /* PPLoggerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PPLoggerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6B5DCB21898AE4A00A0CF3D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D6B5DCB41898AE4B00A0CF3D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,6 +92,8 @@
 				D6B5DCD11898AE4B00A0CF3D /* PPLoggerExampleTests */,
 				D6B5DCB11898AE4A00A0CF3D /* Frameworks */,
 				D6B5DCB01898AE4A00A0CF3D /* Products */,
+				11029C59189E994800E5AF5E /* LICENSE */,
+				11029C57189E993E00E5AF5E /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,7 +244,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11029C58189E993E00E5AF5E /* README.md in Resources */,
 				D6B5DCBD1898AE4B00A0CF3D /* InfoPlist.strings in Resources */,
+				11029C5A189E994800E5AF5E /* LICENSE in Resources */,
 				D6B5DCC51898AE4B00A0CF3D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
